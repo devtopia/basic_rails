@@ -23,5 +23,10 @@ module BasicRails
     # -- all .rb files in that directory are automatically loaded.
     Rails.application.config.action_controller.permit_all_parameters = true
     Rails.application.config.i18n.default_locale = :ja
+    config.generators do |g|
+      g.test_framework :minitest,
+        fixture: false
+      g.factory_girl false
+    end
   end
 end

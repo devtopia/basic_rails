@@ -1,24 +1,40 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Minitestのセットアップ
 
-Things you may want to cover:
+* vim Gemfile
 
-* Ruby version
+```ruby
+... 省略 ...
+group :test do
+  gem 'minitest-rails'
+  gem 'shoulda'
+  gem 'mocha'
+  gem 'minitest-rails-capybara'
+end
+```
 
-* System dependencies
+* bundle install
 
-* Configuration
+* bin/rails g minitest:install
 
-* Database creation
+```zsh
+% bin/rails g minitest:install                                     (git)-[ch7_minitest] <U>
+      create  test/test_helper.rb
+```
 
-* Database initialization
+* bin/rake test
 
-* How to run the test suite
+* vim config/application.rb
 
-* Services (job queues, cache servers, search engines, etc.)
+```ruby
+  config.generators do |g|
+    g.test_framework :minitest,
+      fixture: false
+    g.factory_girl false
+  end
+```
 
-* Deployment instructions
+* git add .
 
-* ...
+* git commit -m 'Create a new branch to use with minitest'
