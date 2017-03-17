@@ -38,3 +38,9 @@ end
 * git add .
 
 * git commit -m 'Create a new branch to use with minitest'
+
+## このブランチだけをcloneしたい場合
+
+```zsh
+git clone --depth 1 -b ch7_minitest git@github.com:devtopia/basic_rails.git
+```
