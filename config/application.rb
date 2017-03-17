@@ -25,8 +25,9 @@ module BasicRails
     Rails.application.config.i18n.default_locale = :ja
     config.generators do |g|
       g.test_framework :minitest,
+        spec: false,
         fixture: false
-      g.factory_girl false
+      g.fixture_replacement :factory_girl, dir: 'test/factories'
     end
   end
 end
