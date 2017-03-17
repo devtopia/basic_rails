@@ -1,24 +1,59 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## RSpecのセットアップ
 
-Things you may want to cover:
+* vim Gemfile
 
-* Ruby version
+```ruby
+group :development, :test do
+  # Call 'byebug' anywhere in the code to stop execution and get a debugger console
+  gem 'byebug', platform: :mri
+  gem 'rspec-rails'
+  gem 'factory_girl_rails'
+end
 
-* System dependencies
+group :test do
+  gem 'faker'
+  gem 'capybara'
+  gem 'database_cleaner'
+  gem 'launchy'
+  gem 'poltergeist'
+end
+```
 
-* Configuration
+* bundle install
 
-* Database creation
+* bin/rails g rspec:install
 
-* Database initialization
+* vim .rspec
 
-* How to run the test suite
+```ruby
+--color
+--require spec_helper
+--format documentation
+```
 
-* Services (job queues, cache servers, search engines, etc.)
+* vim config/application.rb
 
-* Deployment instructions
+```ruby
+... 省略 ...
+    config.generators do |g|
+      g.test_framework :rspec,
+        fixtures: true,
+        view_specs: false,
+        helper_specs: false,
+        routing_specs: false,
+        controller_specs: true,
+        request_specs: false
+      g.fixture_replacement :factory_girl, dir: 'spec/factories'
+    end
+... 省略 ...
+```
 
-* ...
+* bundle binstubs rspec-core
+
+* bin/rspec
+
+* git add .
+
+* git commit -m 'Create a new branch to use with rspec'
