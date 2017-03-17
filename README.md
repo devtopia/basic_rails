@@ -31,7 +31,7 @@ end
   config.generators do |g|
     g.test_framework :minitest,
       fixture: false
-    g.factory_girl false
+    g.fixture_replacement :factory_girl, dir: 'test/factories'
   end
 ```
 
