@@ -57,3 +57,9 @@ end
 * git add .
 
 * git commit -m 'Create a new branch to use with rspec'
+
+## このブランチだけcloneしたい場合
+
+```zsh
+git clone --depth 1 -b ch7_rspec git@github.com:devtopia/basic_rails.git
+```
