@@ -5,9 +5,14 @@
 * vim Gemfile
 
 ```ruby
-... 省略 ...
-group :test do
+group :development, :test do
+  # Call 'byebug' anywhere in the code to stop execution and get a debugger console
+  gem 'byebug', platform: :mri
   gem 'minitest-rails'
+  gem 'factory_girl_rails'
+end
+
+group :test do
   gem 'shoulda'
   gem 'mocha'
   gem 'minitest-rails-capybara'
